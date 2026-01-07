@@ -8,6 +8,7 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+ext["hibernate.version"] = "5.6.5.Final"
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -25,11 +26,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	//JdbcTemplate 추가
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	//JdbcTemplate 추가. //jpa 추가되면 없어도 됨
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	//H2 데이터베이스 추가
 	runtimeOnly 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok'
+	//위 라이브러리가 추가되면 jdbc는 없어도됨.
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	//테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
